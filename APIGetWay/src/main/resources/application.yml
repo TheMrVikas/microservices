@@ -1,0 +1,15 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: API-GateWay
+  cloud:
+     gateway:
+      discovery:
+         locator:
+            enabled: true
+      routes:
+        - id: author-server
+          uri: http://localhost:8081
+          predicates:
+            - Path=/PersonApp/**
